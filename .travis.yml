@@ -9,7 +9,7 @@ branches:
     - travis
 
 # Install pre-reqs
-install:
+before_install:
   - sudo apt-get install build-essential python-psutil libfuse-dev,
   - wget http://www.cmake.org/files/v2.8/cmake-2.8.12.tar.gz,
   - tar xf cmake-2.8.12.tar.gz,
@@ -20,7 +20,7 @@ install:
   - cd ..
 
 # Run the Build script
-script:
+install:
   - cmake -HMaidSafe -Bbuild_maidsafe
 
 # Run Tests
