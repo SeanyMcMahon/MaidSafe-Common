@@ -10,7 +10,7 @@ branches:
 
 # Install pre-reqs
 before_install:
-  - sudo apt-get install build-essential python-psutil libfuse-dev,
+  - sudo apt-get install -qq build-essential python-psutil libfuse-dev,
   - wget http://www.cmake.org/files/v2.8/cmake-2.8.12.tar.gz,
   - tar xf cmake-2.8.12.tar.gz,
   - cd cmake-2.8.12,
