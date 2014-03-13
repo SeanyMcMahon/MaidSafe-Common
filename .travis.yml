@@ -1,0 +1,30 @@
+language: cpp
+compiler:
+  - gcc
+  - clang
+
+# whitelist
+branches:
+  only:
+    - travis
+
+# Install pre-reqs
+install:
+  - sudo apt-get install build-essential libpython-all-dev python-psutil libfuse-dev git-all libicu-dev,
+  - wget http://www.cmake.org/files/v2.8/cmake-2.8.12.tar.gz,
+  - tar xf cmake-2.8.12.tar.gz,
+  - cd cmake-2.8.12,
+  - ./bootstrap,
+  - make,
+  - sudo make install,
+  - cd ..
+
+# Run the Build script
+script:
+  - cmake -HMaidSafe -Bbuild_maidsafe
+
+# Run Tests
+after_script:
+  - cd build_maidsafe
+  - cmake ..
+  - make ExperCommon
